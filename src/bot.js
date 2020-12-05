@@ -42,7 +42,7 @@ bot.onText(/\/type (.+)/, (msg, [source, match]) => {
   const movieName = match.split(' ')[1]
 
   if (!availableTypes.includes(type)) {
-    bot.sendMessage(gci(msg), `There's no such type as "${type}"!`)
+    return bot.sendMessage(gci(msg), `There's no such type as "${type}"!`)
   }
 
   getMovie(movieName, null, type).then((movie) => {
